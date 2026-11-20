@@ -220,14 +220,12 @@ Dans la table `etudiant`, la colonne `id_formation` ne contient qu'un numéro. P
 
 ### Preuves des tests
 
-**Test 1 : les 3 listes s'affichent** (voir les captures des listes dans la section 8).
+**Test 1 : les 3 listes s'affichent** (voir les captures des listes dans la section 7).
 
 **Test 2 : ajout d'un module.** Le module « UML » (26 h, Développement Web) est ajouté avec le formulaire, puis on est redirigé vers la liste où la nouvelle ligne apparaît.
 
 ![Module UML ajouté dans la liste](images/module-apres-ajout.png)
 
-**Test 3 : modification.** Le formulaire de modification (`edit.php?id=5`) est prérempli avec les valeurs du module et la bonne formation est sélectionnée (voir la capture dans la section 8).
+**Test 3 : modification.** Le formulaire de modification (`edit.php?id=5`) est prérempli avec les valeurs du module et la bonne formation est sélectionnée (voir la capture dans la section 7).
 
-**Test 4 : suppression.** Un message de confirmation s'affiche avant de supprimer (voir la capture dans la section 8).
-
----
+**Test 4 : suppression.** Un message de confirmation s'affiche avant de supprimer (voir la capture dans la section 7).
