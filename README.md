@@ -6,18 +6,16 @@ Petite application web en **PHP**, **PDO** et **MySQL** pour gérer les **format
 
 ## Sommaire
 
-1. [Le besoin (règles métier)]
-2. [Le diagramme]
-3. [La base MySQL (3 tables reliées)]
-4. [Installer et lancer le projet]
-5. [Structure du projet]
-6. [La connexion PDO centralisée]
-7. [La page d'accueil]
-8. [Le CRUD complet (3 entités)]
-9. [Formulaires qui utilisent les relations]
-10. [Affichage lisible des données liées]
-11. [Tests effectués]
-12. [Problèmes fréquents]
+1. Le besoin (règles métier)
+2. Le diagramme
+3. La base MySQL (3 tables reliées)
+4. Installer et lancer le projet
+5. La connexion PDO centralisée
+6. La page d'accueil
+7. Le CRUD complet (3 entités)
+8. Formulaires qui utilisent les relations
+9. Affichage lisible des données liées
+10. Tests effectués
 
 ---
 
@@ -49,9 +47,9 @@ Un centre de formation veut une petite application pour organiser ses activités
 - **formation 1 ── N module** : une formation a plusieurs modules, un module a une seule formation.
 
 
-### Capture du diagramme (Concepteur de phpMyAdmin)
+### Capture du diagramme (dans logiciel STARTUML)
 
-![Diagramme des 3 tables et de leurs relations](images/diagramme-concepteur.png)
+![Diagramme des 3 tables et de leurs relations](images/diagrammeuml.png)
 
 Les traits verts montrent les clés étrangères : `etudiant.id_formation` et `module.id_formation` pointent vers `formation.id_formation`.
 
@@ -170,18 +168,6 @@ CRUD = **C**reate (ajouter), **R**ead (lire), **U**pdate (modifier), **D**elete 
 
 ![Confirmation de suppression](images/module-suppression-confirmation.png)
 
-### Pourquoi `prepare()` et `execute()` ?
-
-Les valeurs sont envoyées séparément de la requête (les `?`). Cela protège contre les **injections SQL**. Le `WHERE` est **obligatoire** dans `UPDATE` et `DELETE` : sans lui, toute la table serait modifiée ou supprimée.
-
-### Suppression et relations
-
-La clé étrangère a `ON DELETE CASCADE` :
-
-- supprimer un **étudiant** ou un **module** supprime seulement cette ligne ;
-- supprimer une **formation** supprime aussi **tous ses étudiants et tous ses modules**.
-
-C'est pourquoi la suppression est à tester avec des données de démonstration.
 
 ---
 
@@ -242,8 +228,6 @@ Dans la table `etudiant`, la colonne `id_formation` ne contient qu'un numéro. P
 
 **Test 3 : modification.** Le formulaire de modification (`edit.php?id=5`) est prérempli avec les valeurs du module et la bonne formation est sélectionnée (voir la capture dans la section 8).
 
-**Test 4 : relations affichées.** Dans les listes des étudiants et des modules, la colonne **Formation** affiche le titre (« Développement Web ») et non le numéro 1.
-
-**Test 5 : suppression.** Un message de confirmation s'affiche avant de supprimer (voir la capture dans la section 8).
+**Test 4 : suppression.** Un message de confirmation s'affiche avant de supprimer (voir la capture dans la section 8).
 
 ---
